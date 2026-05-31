@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Lead Leap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink:        #0d1117;
+            --ink-mid:    #3d4a5c;
+            --ink-soft:   #6b7a91;
+            --ink-ghost:  #a8b4c4;
+            --surface:    #ffffff;
+            --surface-2:  #f5f7fa;
+            --surface-3:  #eef1f6;
+            --accent:     #1a56db;
+            --border:     #dde3ed;
+            --border-2:   #c8d0de;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--surface-2);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* Top bar */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-mark span {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .brand-name sub {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--ink-soft);
+            display: block;
+            vertical-align: initial;
+            letter-spacing: 0;
+        }
+
+        .topbar-badge {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            border: 1px solid var(--border-2);
+            border-radius: 6px;
+            padding: 5px 10px;
+        }
+
+        /* Hero */
+        .hero {
+            margin-bottom: 48px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: var(--ink-mid);
+            max-width: 480px;
+            line-height: 1.8;
+        }
+
+        /* Contact cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            transition: border-color 0.2s;
+        }
+
+        .section-card:hover {
+            border-color: var(--border-2);
+        }
+
+        .section-card.full {
+            grid-column: 1 / -1;
+        }
+
+        .card-num {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: var(--ink);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--ink-soft);
+            margin-bottom: 6px;
+        }
+
+        .card-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .card-value a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-2);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .card-value a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .card-sub {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+
+        /* Response time card */
+        .response-card {
+            background: var(--ink);
+            border: 1px solid var(--ink);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .response-card-left .label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 6px;
+        }
+
+        .response-card-left .value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .response-card-left .note {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            margin-top: 4px;
+        }
+
+        .response-dots {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .response-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .response-dots span.active {
+            background: #4ade80;
+        }
+
+        /* Divider label */
+        .divider-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--ink-ghost);
+            margin: 28px 0 14px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-left {
+            font-size: 13px;
+            color: var(--ink-ghost);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-right a {
+            font-size: 13px;
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-2);
+            transition: color 0.15s;
+        }
+
+        .footer-right a:hover { color: var(--ink); }
+
+        @media (max-width: 520px) {
+            .hero h1 { font-size: 32px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .topbar-badge { display: none; }
+            .response-card { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Top bar -->
+    <div class="topbar">
+        <div class="brand">
+            <div class="brand-mark"><span>LL</span></div>
+            <div>
+                <div class="brand-name">Lead Leap</div>
+                <sub>by Credibilis Solutions</sub>
+            </div>
+        </div>
+        <div class="topbar-badge">Contact</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-eyebrow">Contact Us</div>
+        <h1>We're here<br>to help</h1>
+        <p>Have a question about Lead Leap, your subscription, or your data? Reach out and we'll get back to you as soon as we can.</p>
+    </div>
+
+    <!-- Response time banner -->
+    <div class="response-card">
+        <div class="response-card-left">
+            <div class="label">Typical response time</div>
+            <div class="value">Within 24 hours</div>
+            <div class="note">Monday to Friday, business hours</div>
+        </div>
+        <div class="response-dots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Contact cards -->
+    <div class="divider-label">Get in touch</div>
+
+    <div class="contact-grid">
+        <div class="section-card">
+            <div class="card-num">01</div>
+            <div class="card-title">Email</div>
+            <div class="card-value"><a href="mailto:admin@credibilis.in">admin@credibilis.in</a></div>
+            <div class="card-sub">For all general enquiries and support</div>
+        </div>
+
+        <div class="section-card">
+            <div class="card-num">02</div>
+            <div class="card-title">Company</div>
+            <div class="card-value">Credibilis Solutions LLC</div>
+            <div class="card-sub">Registered in Delaware, United States</div>
+        </div>
+
+        <div class="section-card full">
+            <div class="card-num">03</div>
+            <div class="card-title">Account & Data Deletion</div>
+            <div class="card-value">Use the "Delete Account" option in Settings</div>
+            <div class="card-sub">Or email us at <a href="mailto:admin@credibilis.in" style="color: var(--accent); border-bottom: 1px solid rgba(26,86,219,0.3);">admin@credibilis.in</a> and we'll process your request within 30 days.</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
+        <div class="footer-right">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
