@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Lead Leap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink:        #0d1117;
+            --ink-mid:    #3d4a5c;
+            --ink-soft:   #6b7a91;
+            --ink-ghost:  #a8b4c4;
+            --surface:    #ffffff;
+            --surface-2:  #f5f7fa;
+            --surface-3:  #eef1f6;
+            --accent:     #1a56db;
+            --border:     #dde3ed;
+            --border-2:   #c8d0de;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--surface-2);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* Top bar */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-mark span {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .brand-name sub {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--ink-soft);
+            display: block;
+            vertical-align: initial;
+            letter-spacing: 0;
+        }
+
+        .topbar-badge {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            border: 1px solid var(--border-2);
+            border-radius: 6px;
+            padding: 5px 10px;
+        }
+
+        /* Hero */
+        .hero {
+            margin-bottom: 52px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .pill {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            background: #eff4ff;
+            border: 1px solid #c7d8ff;
+            border-radius: 20px;
+            padding: 4px 12px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: var(--ink-mid);
+            max-width: 560px;
+            line-height: 1.8;
+        }
+
+        /* Section cards */
+        .section-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .section-card:hover {
+            border-color: var(--border-2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .section-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--ink);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .section-header h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+            padding-top: 6px;
+        }
+
+        .section-body {
+            padding-left: 48px;
+        }
+
+        .section-body p,
+        .section-body ul {
+            font-size: 14px;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .section-body p:last-child,
+        .section-body ul:last-child { margin-bottom: 0; }
+
+        .section-body ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .section-body ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--ink-mid);
+        }
+
+        .section-body ul li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--ink-ghost);
+            flex-shrink: 0;
+            margin-top: 9px;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .section-body a {
+            border-bottom: 1px solid rgba(26,86,219,0.3);
+            transition: border-color 0.15s;
+        }
+
+        .section-body a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-left {
+            font-size: 13px;
+            color: var(--ink-ghost);
+        }
+
+        .footer-right a {
+            font-size: 13px;
+            color: var(--ink-soft);
+            border-bottom: 1px solid var(--border-2);
+        }
+
+        .footer-right a:hover { color: var(--ink); }
+
+        @media (max-width: 520px) {
+            .hero h1 { font-size: 32px; }
+            .section-body { padding-left: 0; }
+            .topbar-badge { display: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Top bar -->
+    <div class="topbar">
+        <div class="brand">
+            <div class="brand-mark"><span>LL</span></div>
+            <div>
+                <div class="brand-name">Lead Leap</div>
+                <sub>by Credibilis Solutions</sub>
+            </div>
+        </div>
+        <div class="topbar-badge">Legal Document</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-eyebrow">Terms of Service</div>
+        <h1>Your agreement<br>with us</h1>
+        <div class="hero-meta">
+            <span class="pill">Effective May 23, 2026</span>
+        </div>
+        <p>Please read these terms carefully before using Lead Leap. By accessing or using the application, you agree to be bound by these terms.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="section-card" id="s1">
+        <div class="section-header">
+            <div class="section-num">1</div>
+            <h2>Acceptance of Terms</h2>
+        </div>
+        <div class="section-body">
+            <p>By accessing or using Lead Leap, you agree to these Terms of Service and our <a href="privacy-policy.html">Privacy Policy</a>. If you do not agree with any part of these terms, you must not use the application.</p>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="section-card" id="s2">
+        <div class="section-header">
+            <div class="section-num">2</div>
+            <h2>Usage License</h2>
+        </div>
+        <div class="section-body">
+            <p>Credibilis Solutions LLC grants you a non-exclusive, non-transferable, revocable license to use Lead Leap in accordance with these terms. This license is solely for your personal or internal business use.</p>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section-card" id="s3">
+        <div class="section-header">
+            <div class="section-num">3</div>
+            <h2>Accounts</h2>
+        </div>
+        <div class="section-body">
+            <p>To use Lead Leap, you must create an account via Apple Sign-In or Google Sign-In. You agree to provide accurate information and are responsible for all activity under your account, including unauthorized access. If you suspect unauthorized use, contact us immediately at <a href="mailto:admin@credibilis.in">admin@credibilis.in</a>.</p>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section-card" id="s4">
+        <div class="section-header">
+            <div class="section-num">4</div>
+            <h2>Usage Restrictions</h2>
+        </div>
+        <div class="section-body">
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use Lead Leap for any illegal activities or in a manner that could damage or disrupt the service</li>
+                <li>Copy, modify, distribute, sell, or transfer any part of the application without explicit written consent</li>
+                <li>Attempt to decompile, reverse engineer, or extract the source code of the application</li>
+                <li>Use any automated system, bot, or scraper to access the service without explicit written consent</li>
+                <li>Circumvent rate limits, credit systems, or other usage controls</li>
+                <li>Submit conversation text containing intentional prompt injection or attempts to manipulate the AI analysis system</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="section-card" id="s5">
+        <div class="section-header">
+            <div class="section-num">5</div>
+            <h2>Subscriptions &amp; Credits</h2>
+        </div>
+        <div class="section-body">
+            <p>Lead Leap operates on a credit-based system with free and pro tiers. Free tier users receive a limited number of analysis credits. Pro subscriptions are managed through Apple's In-App Purchase system via RevenueCat.</p>
+            <p>Usage is subject to rate limits: up to 50 full analyses and 100 incremental analyses per day. Credits and rate limits may be adjusted at our discretion.</p>
+            <p>Subscription terms, pricing, and renewal are governed by Apple's App Store terms. You may manage or cancel your subscription through your device's Settings, then Apple ID, then Subscriptions.</p>
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="section-card" id="s6">
+        <div class="section-header">
+            <div class="section-num">6</div>
+            <h2>AI-Generated Content</h2>
+        </div>
+        <div class="section-body">
+            <p>Lead Leap uses artificial intelligence to analyze conversations and generate lead scores, summaries, sentiment analysis, objection tracking, and follow-up suggestions.</p>
+            <p>AI-generated outputs are advisory in nature and should not be treated as guarantees of lead behavior or deal outcomes. You acknowledge that AI analysis may contain inaccuracies and should be used as one factor in your decision-making process.</p>
+            <p>You retain ownership of the conversation text you provide. The AI-generated analysis outputs (scores, summaries, follow-ups) are licensed to you for your personal or business use as part of the service.</p>
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section-card" id="s7">
+        <div class="section-header">
+            <div class="section-num">7</div>
+            <h2>Intellectual Property</h2>
+        </div>
+        <div class="section-body">
+            <p>All intellectual property rights related to Lead Leap, including but not limited to copyrights, trademarks, trade secrets, algorithms, and design, are owned by Credibilis Solutions LLC or its licensors. You may not use any of our intellectual property without prior written permission.</p>
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="section-card" id="s8">
+        <div class="section-header">
+            <div class="section-num">8</div>
+            <h2>Disclaimer of Warranties</h2>
+        </div>
+        <div class="section-body">
+            <p>Lead Leap is provided on an "as is" and "as available" basis. We do not guarantee the accuracy, completeness, or reliability of any AI-generated analysis, scores, or recommendations.</p>
+            <p>We disclaim all warranties, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+        </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="section-card" id="s9">
+        <div class="section-header">
+            <div class="section-num">9</div>
+            <h2>Limitation of Liability</h2>
+        </div>
+        <div class="section-body">
+            <p>To the maximum extent permitted by law, Credibilis Solutions LLC shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from or related to your use of Lead Leap, including but not limited to lost deals, missed follow-ups, or decisions made based on AI-generated analysis.</p>
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="section-card" id="s10">
+        <div class="section-header">
+            <div class="section-num">10</div>
+            <h2>Indemnification</h2>
+        </div>
+        <div class="section-body">
+            <p>You agree to indemnify and hold harmless Credibilis Solutions LLC and its affiliates, directors, agents, and employees from any claims, damages, or expenses (including legal fees) arising from your use of Lead Leap or violation of these terms.</p>
+        </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="section-card" id="s11">
+        <div class="section-header">
+            <div class="section-num">11</div>
+            <h2>Termination</h2>
+        </div>
+        <div class="section-body">
+            <p>We reserve the right to suspend or terminate your access to Lead Leap at any time, without notice, for conduct that we believe violates these terms or is harmful to the service, other users, or third parties.</p>
+        </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="section-card" id="s12">
+        <div class="section-header">
+            <div class="section-num">12</div>
+            <h2>Account Deletion</h2>
+        </div>
+        <div class="section-body">
+            <p>You may request deletion of your account and all associated data at any time through the "Delete Account" option in the app's Settings. Upon request, our team will reach out to your registered email for verification, and your data will be permanently deleted within 30 days.</p>
+        </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="section-card" id="s13">
+        <div class="section-header">
+            <div class="section-num">13</div>
+            <h2>Governing Law</h2>
+        </div>
+        <div class="section-body">
+            <p>These terms are governed by and construed in accordance with the laws of the State of Delaware, United States of America, without regard to its conflict of law provisions. Any legal proceedings arising out of these terms shall be brought in the courts of the State of Delaware.</p>
+        </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="section-card" id="s14">
+        <div class="section-header">
+            <div class="section-num">14</div>
+            <h2>Amendments</h2>
+        </div>
+        <div class="section-body">
+            <p>We may update these terms from time to time. Changes will be reflected within the app and on this page, and the effective date will be updated accordingly. Your continued use of Lead Leap after such changes constitutes acceptance of the revised terms.</p>
+        </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="section-card" id="s15">
+        <div class="section-header">
+            <div class="section-num">15</div>
+            <h2>Contact Us</h2>
+        </div>
+        <div class="section-body">
+            <p>If you have any questions about these Terms of Service, please contact us at:</p>
+            <p><a href="mailto:admin@credibilis.in">admin@credibilis.in</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
+        <div class="footer-right"><a href="privacy-policy.html">Privacy Policy</a></div>
+    </div>
+
+</div>
+</body>
+</html>
