@@ -22,6 +22,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -29,6 +30,14 @@
             color: var(--ink);
             -webkit-font-smoothing: antialiased;
             line-height: 1.7;
+        }
+
+        /* ── Accent stripe ── */
+        body::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #6366f1, #a855f7);
         }
 
         .page {
@@ -88,15 +97,31 @@
             letter-spacing: 0;
         }
 
-        .topbar-badge {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.7px;
-            text-transform: uppercase;
+        .topbar-nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        .topbar-nav a {
+            font-size: 13px;
+            font-weight: 500;
             color: var(--ink-soft);
-            border: 1px solid var(--border-2);
-            border-radius: 6px;
-            padding: 5px 10px;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            color: var(--ink);
+            background: var(--surface-3);
+        }
+
+        .topbar-nav a.active {
+            color: var(--ink);
+            font-weight: 600;
+            background: var(--surface);
+            box-shadow: 0 1px 3px rgba(13, 17, 23, 0.06);
         }
 
         /* Hero */
@@ -172,6 +197,18 @@
 
         .section-card:hover {
             border-color: var(--border-2);
+        }
+
+        /* ── Scroll animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-header {
@@ -287,7 +324,8 @@
         @media (max-width: 520px) {
             .hero h1 { font-size: 32px; }
             .section-body { padding-left: 0; }
-            .topbar-badge { display: none; }
+            .topbar-nav { gap: 2px; }
+            .topbar-nav a { font-size: 12px; padding: 5px 8px; }
         }
     </style>
 </head>
@@ -295,16 +333,21 @@
 <div class="page">
 
     <!-- Top bar -->
-    <div class="topbar">
-        <div class="brand">
+    <header class="topbar">
+        <a class="brand" href="index.html">
             <div class="brand-mark"><span>LL</span></div>
             <div>
                 <div class="brand-name">Lead Leap</div>
                 <sub>by Credibilis Solutions</sub>
             </div>
-        </div>
-        <div class="topbar-badge">Legal Document</div>
-    </div>
+        </a>
+        <nav class="topbar-nav">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html" class="active">Terms</a>
+            <a href="contact-us.html">Contact</a>
+        </nav>
+    </header>
 
     <!-- Hero -->
     <div class="hero">
@@ -317,7 +360,7 @@
     </div>
 
     <!-- 1 -->
-    <div class="section-card" id="s1">
+    <div class="section-card fade-up" id="s1">
         <div class="section-header">
             <div class="section-num">1</div>
             <h2>Acceptance of Terms</h2>
@@ -328,7 +371,7 @@
     </div>
 
     <!-- 2 -->
-    <div class="section-card" id="s2">
+    <div class="section-card fade-up" id="s2">
         <div class="section-header">
             <div class="section-num">2</div>
             <h2>Usage License</h2>
@@ -339,7 +382,7 @@
     </div>
 
     <!-- 3 -->
-    <div class="section-card" id="s3">
+    <div class="section-card fade-up" id="s3">
         <div class="section-header">
             <div class="section-num">3</div>
             <h2>Accounts</h2>
@@ -350,7 +393,7 @@
     </div>
 
     <!-- 4 -->
-    <div class="section-card" id="s4">
+    <div class="section-card fade-up" id="s4">
         <div class="section-header">
             <div class="section-num">4</div>
             <h2>Usage Restrictions</h2>
@@ -369,7 +412,7 @@
     </div>
 
     <!-- 5 -->
-    <div class="section-card" id="s5">
+    <div class="section-card fade-up" id="s5">
         <div class="section-header">
             <div class="section-num">5</div>
             <h2>Subscriptions &amp; Credits</h2>
@@ -382,7 +425,7 @@
     </div>
 
     <!-- 6 -->
-    <div class="section-card" id="s6">
+    <div class="section-card fade-up" id="s6">
         <div class="section-header">
             <div class="section-num">6</div>
             <h2>AI-Generated Content</h2>
@@ -395,7 +438,7 @@
     </div>
 
     <!-- 7 -->
-    <div class="section-card" id="s7">
+    <div class="section-card fade-up" id="s7">
         <div class="section-header">
             <div class="section-num">7</div>
             <h2>Intellectual Property</h2>
@@ -406,7 +449,7 @@
     </div>
 
     <!-- 8 -->
-    <div class="section-card" id="s8">
+    <div class="section-card fade-up" id="s8">
         <div class="section-header">
             <div class="section-num">8</div>
             <h2>Disclaimer of Warranties</h2>
@@ -418,7 +461,7 @@
     </div>
 
     <!-- 9 -->
-    <div class="section-card" id="s9">
+    <div class="section-card fade-up" id="s9">
         <div class="section-header">
             <div class="section-num">9</div>
             <h2>Limitation of Liability</h2>
@@ -429,7 +472,7 @@
     </div>
 
     <!-- 10 -->
-    <div class="section-card" id="s10">
+    <div class="section-card fade-up" id="s10">
         <div class="section-header">
             <div class="section-num">10</div>
             <h2>Indemnification</h2>
@@ -440,7 +483,7 @@
     </div>
 
     <!-- 11 -->
-    <div class="section-card" id="s11">
+    <div class="section-card fade-up" id="s11">
         <div class="section-header">
             <div class="section-num">11</div>
             <h2>Termination</h2>
@@ -451,7 +494,7 @@
     </div>
 
     <!-- 12 -->
-    <div class="section-card" id="s12">
+    <div class="section-card fade-up" id="s12">
         <div class="section-header">
             <div class="section-num">12</div>
             <h2>Account Deletion</h2>
@@ -462,7 +505,7 @@
     </div>
 
     <!-- 13 -->
-    <div class="section-card" id="s13">
+    <div class="section-card fade-up" id="s13">
         <div class="section-header">
             <div class="section-num">13</div>
             <h2>Governing Law</h2>
@@ -473,7 +516,7 @@
     </div>
 
     <!-- 14 -->
-    <div class="section-card" id="s14">
+    <div class="section-card fade-up" id="s14">
         <div class="section-header">
             <div class="section-num">14</div>
             <h2>Amendments</h2>
@@ -484,7 +527,7 @@
     </div>
 
     <!-- 15 -->
-    <div class="section-card" id="s15">
+    <div class="section-card fade-up" id="s15">
         <div class="section-header">
             <div class="section-num">15</div>
             <h2>Contact Us</h2>
@@ -496,11 +539,29 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">
+    <footer class="footer">
         <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
-        <div class="footer-right"><a href="privacy-policy.html">Privacy Policy</a></div>
-    </div>
+        <nav class="footer-right">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </footer>
 
 </div>
+
+<script>
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+        observer.observe(el);
+    });
+</script>
 </body>
 </html>

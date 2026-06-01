@@ -3,192 +3,650 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Leap — Legal</title>
+    <title>Lead Leap — AI-Powered Lead Intelligence from Your Conversations</title>
+    <meta name="description" content="Turn WhatsApp conversations into actionable lead intelligence. Lead Leap uses AI to score leads, detect sentiment, surface objections, and draft follow-ups — so you close more deals.">
+    <link rel="canonical" href="https://credibilis-solutions.com/lead-leap/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lead Leap — Turn Conversations into Closed Deals">
+    <meta property="og:description" content="AI-powered lead analysis and follow-up management for sales professionals. Paste a conversation, get instant insights.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://credibilis-solutions.com/lead-leap/">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
     <style>
+        /* ── Design tokens ── */
         :root {
-            --ink:       #0d1117;
-            --ink-mid:   #3d4a5c;
-            --ink-soft:  #6b7a91;
-            --ink-ghost: #a8b4c4;
-            --surface:   #ffffff;
-            --surface-2: #f5f7fa;
-            --accent:    #1a56db;
-            --border:    #dde3ed;
-            --border-2:  #c8d0de;
+            --ink:        #0d1117;
+            --ink-mid:    #3d4a5c;
+            --ink-soft:   #6b7a91;
+            --ink-ghost:  #a8b4c4;
+            --surface:    #ffffff;
+            --surface-2:  #f5f7fa;
+            --surface-3:  #eef1f6;
+            --accent:     #1a56db;
+            --accent-light: #e8effc;
+            --border:     #dde3ed;
+            --border-2:   #c8d0de;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--surface-2);
             color: var(--ink);
             -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* ── Accent stripe ── */
+        body::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #6366f1, #a855f7);
+        }
+
+        /* ── Page shell ── */
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* ── Top bar ── */
+        .topbar {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            padding: 28px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
         }
 
-        .container {
-            text-align: center;
-            max-width: 380px;
-            padding: 40px 24px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        /* Wordmark */
         .brand-mark {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
             background: var(--ink);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            flex-shrink: 0;
         }
 
         .brand-mark span {
             font-family: 'DM Serif Display', serif;
-            font-size: 24px;
+            font-size: 18px;
             color: #fff;
             letter-spacing: -1px;
             line-height: 1;
         }
 
-        h1 {
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .brand-name sub {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--ink-soft);
+            display: block;
+            vertical-align: initial;
+            letter-spacing: 0;
+        }
+
+        .topbar-nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        .topbar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            color: var(--ink);
+            background: var(--surface-3);
+        }
+
+        .topbar-nav a.active {
+            color: var(--ink);
+            font-weight: 600;
+            background: var(--surface);
+            box-shadow: 0 1px 3px rgba(13, 17, 23, 0.06);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            margin-bottom: 64px;
+            padding-bottom: 64px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 18px;
+            background: var(--accent-light);
+            padding: 6px 14px 6px 12px;
+            border-radius: 20px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .hero h1 {
             font-family: 'DM Serif Display', serif;
-            font-size: 32px;
+            font-size: 52px;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent), #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--ink-mid);
+            max-width: 520px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--ink);
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -0.1px;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(13, 17, 23, 0.22);
+        }
+
+        .cta-button svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .cta-secondary {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.15s;
+        }
+
+        .cta-secondary:hover { color: var(--ink); }
+        .cta-secondary span { transition: transform 0.15s; display: inline-block; }
+        .cta-secondary:hover span { transform: translateX(2px); }
+
+        /* ── Stat chips ── */
+        .hero-stats {
+            display: flex;
+            gap: 10px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink-mid);
+        }
+
+        .stat-chip .stat-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .stat-chip .stat-icon svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .stat-chip .stat-icon.blue  { background: #e8effc; color: var(--accent); }
+        .stat-chip .stat-icon.green { background: #ecfdf5; color: #059669; }
+        .stat-chip .stat-icon.amber { background: #fef3c7; color: #d97706; }
+
+        /* ── Section headers ── */
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--ink-ghost);
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
             font-weight: 400;
             color: var(--ink);
             letter-spacing: -0.5px;
-            margin-bottom: 8px;
         }
 
-        .subtitle {
-            font-size: 14px;
-            color: var(--ink-soft);
-            margin-bottom: 40px;
-            line-height: 1.6;
+        /* ── How it works grid ── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
-        /* Link cards */
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .links a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 20px;
+        .step-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            text-decoration: none;
-            transition: border-color 0.2s, transform 0.2s;
+            border-radius: 14px;
+            padding: 28px;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            position: relative;
         }
 
-        .links a:hover {
+        .step-card:hover {
             border-color: var(--border-2);
-            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(13, 17, 23, 0.06);
+            transform: translateY(-2px);
         }
 
-        .link-left {
+        .step-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            text-align: left;
+            justify-content: center;
+            margin-bottom: 16px;
         }
 
-        .link-num {
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
+        .step-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .step-icon.paste    { background: #e8effc; color: #1a56db; }
+        .step-icon.profile  { background: #f3e8ff; color: #7c3aed; }
+        .step-icon.followup { background: #ecfdf5; color: #059669; }
+        .step-icon.repeat   { background: #fef3c7; color: #d97706; }
+
+        .step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
             background: var(--ink);
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 700;
-            flex-shrink: 0;
+            position: absolute;
+            top: 16px;
+            right: 16px;
         }
 
-        .link-label {
-            font-size: 14px;
+        .step-title {
+            font-size: 16px;
             font-weight: 600;
             color: var(--ink);
-            letter-spacing: -0.1px;
+            letter-spacing: -0.2px;
+            margin-bottom: 6px;
         }
 
-        .link-sub {
-            font-size: 12px;
+        .step-desc {
+            font-size: 13px;
             color: var(--ink-soft);
-            margin-top: 2px;
+            line-height: 1.6;
         }
 
-        .link-arrow {
-            font-size: 16px;
-            color: var(--ink-ghost);
-            line-height: 1;
-            flex-shrink: 0;
+        /* ── Highlight banner ── */
+        .highlight-banner {
+            background: linear-gradient(135deg, #0d1117, #1a2332);
+            border-radius: 14px;
+            padding: 32px;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Footer */
-        .footer {
-            margin-top: 36px;
+        .highlight-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .highlight-banner .label {
             font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 6px;
+        }
+
+        .highlight-banner .value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .highlight-banner .note {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            margin-top: 4px;
+            position: relative;
+        }
+
+        .highlight-dots {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .highlight-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .highlight-dots span.active {
+            background: #4ade80;
+            box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+        }
+
+        /* ── Scroll animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* stagger children */
+        .fade-up:nth-child(2) { transition-delay: 0.08s; }
+        .fade-up:nth-child(3) { transition-delay: 0.16s; }
+        .fade-up:nth-child(4) { transition-delay: 0.24s; }
+
+        /* ── Footer ── */
+        .footer {
+            margin-top: 56px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-left {
+            font-size: 13px;
             color: var(--ink-ghost);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-right a {
+            font-size: 13px;
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-2);
+            transition: color 0.15s;
+        }
+
+        .footer-right a:hover { color: var(--ink); }
+
+        /* ── Responsive ── */
+        @media (max-width: 520px) {
+            .hero h1 { font-size: 36px; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .topbar-nav { gap: 2px; }
+            .topbar-nav a { font-size: 12px; padding: 5px 8px; }
+            .highlight-banner { flex-direction: column; align-items: flex-start; }
+            .hero-stats { gap: 8px; }
+            .stat-chip { font-size: 11px; padding: 6px 10px; }
+            .section-title { font-size: 24px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="page">
 
-        <div class="brand-mark"><span>LL</span></div>
-        <h1>Lead Leap</h1>
-        <p class="subtitle">AI-powered lead analysis &amp; follow-up management</p>
+    <!-- Top bar -->
+    <header class="topbar">
+        <a class="brand" href="index.html">
+            <div class="brand-mark"><span>LL</span></div>
+            <div>
+                <div class="brand-name">Lead Leap</div>
+                <sub>by Credibilis Solutions</sub>
+            </div>
+        </a>
+        <nav class="topbar-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html">Terms</a>
+            <a href="contact-us.html">Contact</a>
+        </nav>
+    </header>
 
-        <div class="links">
-            <a href="privacy-policy.html">
-                <div class="link-left">
-                    <div class="link-num">01</div>
-                    <div>
-                        <div class="link-label">Privacy Policy</div>
-                        <div class="link-sub">How we handle your data</div>
-                    </div>
-                </div>
-                <span class="link-arrow">›</span>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-eyebrow">AI-Powered Lead Intelligence</div>
+        <h1>Turn conversations<br>into <em>closed deals</em></h1>
+        <p>Paste a WhatsApp chat, get instant lead scoring, sentiment analysis, objection mapping, and AI-drafted follow-ups — everything you need to close faster.</p>
+        <div class="hero-actions">
+            <a class="cta-button" href="#" aria-label="Download Lead Leap on the App Store">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12.74 9.39c-.02-2.08 1.7-3.08 1.78-3.13-0.97-1.42-2.48-1.61-3.02-1.63-1.28-.13-2.51.76-3.16.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.83-3.44 2.1-1.48 2.56-.38 6.35 1.05 8.43.71 1.01 1.55 2.15 2.65 2.11 1.07-.04 1.47-.69 2.76-.69 1.28 0 1.65.69 2.76.67 1.14-.02 1.87-1.03 2.55-2.05.82-1.17 1.15-2.32 1.17-2.38-.03-.01-2.23-.86-2.35-3.47z" fill="currentColor"/>
+                    <path d="M10.56 3.49c.57-.72.96-1.7.86-2.69-.83.04-1.85.57-2.45 1.27-.53.62-1 1.63-.88 2.59.93.07 1.89-.47 2.47-1.17z" fill="currentColor"/>
+                </svg>
+                Download on the App Store
             </a>
-            <a href="terms-of-service.html">
-                <div class="link-left">
-                    <div class="link-num">02</div>
-                    <div>
-                        <div class="link-label">Terms of Service</div>
-                        <div class="link-sub">Your agreement with us</div>
-                    </div>
-                </div>
-                <span class="link-arrow">›</span>
-            </a>
-            <a href="contact-us.html">
-                <div class="link-left">
-                    <div class="link-num">03</div>
-                    <div>
-                        <div class="link-label">Contact Us</div>
-                        <div class="link-sub">We're here to help</div>
-                    </div>
-                </div>
-                <span class="link-arrow">›</span>
-            </a>
+            <a class="cta-secondary" href="#how-it-works">See how it works <span>&darr;</span></a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-chip">
+                <div class="stat-icon blue"><i data-lucide="target"></i></div>
+                Closure scoring
+            </div>
+            <div class="stat-chip">
+                <div class="stat-icon green"><i data-lucide="activity"></i></div>
+                Sentiment tracking
+            </div>
+            <div class="stat-chip">
+                <div class="stat-icon amber"><i data-lucide="sparkles"></i></div>
+                AI follow-ups
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <div class="section-header" id="how-it-works">
+        <div class="section-label">How it works</div>
+        <div class="section-title">Four steps to smarter selling</div>
+    </div>
+
+    <div class="steps-grid">
+        <div class="step-card fade-up">
+            <div class="step-icon paste"><i data-lucide="clipboard-paste"></i></div>
+            <div class="step-num">01</div>
+            <div class="step-title">Paste</div>
+            <div class="step-desc">Copy a WhatsApp conversation or import directly from Telegram, iMessage, or Safari using the share extension.</div>
         </div>
 
-        <div class="footer">&copy; 2026 Credibilis Solutions LLC</div>
+        <div class="step-card fade-up">
+            <div class="step-icon profile"><i data-lucide="scan-search"></i></div>
+            <div class="step-num">02</div>
+            <div class="step-title">Profile</div>
+            <div class="step-desc">AI extracts the lead's name, closure score, sentiment, objections, and buyer profile — instantly.</div>
+        </div>
+
+        <div class="step-card fade-up">
+            <div class="step-icon followup"><i data-lucide="send"></i></div>
+            <div class="step-num">03</div>
+            <div class="step-title">Follow Up</div>
+            <div class="step-desc">Get AI-drafted messages and reminders matched to your tone, with due dates on a cross-lead calendar.</div>
+        </div>
+
+        <div class="step-card fade-up">
+            <div class="step-icon repeat"><i data-lucide="refresh-cw"></i></div>
+            <div class="step-num">04</div>
+            <div class="step-title">Repeat</div>
+            <div class="step-desc">Re-analyze with newer messages to track score progression and keep follow-ups fresh over time.</div>
+        </div>
     </div>
+
+    <!-- Highlight banner -->
+    <div class="highlight-banner">
+        <div>
+            <div class="label">The continuous loop</div>
+            <div class="value">Paste &rarr; Profile &rarr; Follow Up &rarr; Repeat</div>
+            <div class="note">Every re-analysis sharpens your lead intelligence</div>
+        </div>
+        <div class="highlight-dots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
+        <nav class="footer-right">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </footer>
+
+</div>
+
+<script>
+    // Scroll-triggered fade-in for step cards
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+        observer.observe(el);
+    });
+
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
 </body>
 </html>
