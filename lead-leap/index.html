@@ -18,14 +18,14 @@
     <meta property="og:url" content="https://credibilis-solutions.com/lead-leap/">
     <meta property="og:site_name" content="Lead Leap">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://credibilis-solutions.com/lead-leap/articles/images/follow-up-problem-hero.jpg">
-    <meta property="og:image:alt" content="Lead Leap — AI-powered lead intelligence for real estate agents">
+    <meta property="og:image" content="https://credibilis-solutions.com/lead-leap/images/app-insights.jpg">
+    <meta property="og:image:alt" content="Lead Leap app showing AI summary, sentiment trend, and key objections for a real estate lead">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lead Leap — Turn WhatsApp Conversations into Closed Deals">
     <meta name="twitter:description" content="AI-powered lead analysis and follow-up management for real estate agents. Paste a conversation, get instant insights.">
-    <meta name="twitter:image" content="https://credibilis-solutions.com/lead-leap/articles/images/follow-up-problem-hero.jpg">
+    <meta name="twitter:image" content="https://credibilis-solutions.com/lead-leap/images/app-insights.jpg">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
@@ -53,7 +53,12 @@
         "applicationCategory": "BusinessApplication",
         "description": "AI-powered lead intelligence from WhatsApp conversations for real estate agents",
         "url": "https://credibilis-solutions.com/lead-leap/",
-        "image": "https://credibilis-solutions.com/lead-leap/favicon.svg",
+        "image": "https://credibilis-solutions.com/lead-leap/images/app-insights.jpg",
+        "screenshot": [
+            "https://credibilis-solutions.com/lead-leap/images/app-closure-score.jpg",
+            "https://credibilis-solutions.com/lead-leap/images/app-insights.jpg",
+            "https://credibilis-solutions.com/lead-leap/images/app-followups.jpg"
+        ],
         "publisher": {
             "@type": "Organization",
             "name": "Credibilis Solutions LLC"
@@ -363,6 +368,7 @@
 
         /* ── Section headers ── */
         .section-header {
+            margin-top: 64px;
             margin-bottom: 28px;
         }
 
@@ -472,73 +478,161 @@
             line-height: 1.6;
         }
 
-        /* ── Highlight banner ── */
-        .highlight-banner {
-            background: linear-gradient(135deg, #0d1117, #1a2332);
-            border-radius: 14px;
-            padding: 32px;
-            margin-top: 20px;
-            display: flex;
+        /* ── Product showcase ── */
+        .showcase {
+            margin: 0;
+        }
+
+        .showcase-row {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
             align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+            gap: 24px;
+            margin-top: 24px;
+            padding: 20px 36px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 0 4px 24px rgba(13,17,23,0.04);
+            overflow: hidden;
+        }
+
+        .showcase-row--reverse .showcase-shot {
+            order: 2;
+        }
+
+        .showcase-shot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 -36px;
+        }
+
+        .showcase-shot img {
+            width: 100%;
+            max-width: 620px;
+            max-height: 600px;
+            object-fit: contain;
+            height: auto;
+            display: block;
+        }
+
+        .showcase-caption {
+            padding: 18px 8px;
+            max-width: 380px;
+        }
+
+        .showcase-caption-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .showcase-caption h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .showcase-caption p {
+            font-size: 16px;
+            color: var(--ink-soft);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── Closing CTA ── */
+        .closing-cta {
+            background: linear-gradient(135deg, #0d1117 0%, #1e293b 100%);
+            border-radius: 18px;
+            padding: 44px 36px;
+            margin-top: 48px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .highlight-banner::before {
+        .closing-cta::before {
             content: '';
             position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 160px;
-            height: 160px;
-            background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%);
-            border-radius: 50%;
+            top: -50%;
+            right: -10%;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%);
+            pointer-events: none;
         }
 
-        .highlight-banner .label {
-            font-size: 12px;
+        .closing-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -60%;
+            left: -15%;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(168,85,247,0.13), transparent 70%);
+            pointer-events: none;
+        }
+
+        .closing-cta-label {
+            position: relative;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: rgba(255,255,255,0.45);
-            margin-bottom: 6px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 12px;
         }
 
-        .highlight-banner .value {
+        .closing-cta-title {
             font-family: 'DM Serif Display', serif;
-            font-size: 24px;
+            font-size: 30px;
             color: #fff;
-            letter-spacing: -0.5px;
             line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
             position: relative;
         }
 
-        .highlight-banner .note {
-            font-size: 13px;
+        .closing-cta-title em {
+            font-style: italic;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .closing-cta p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.65;
+            max-width: 480px;
+            margin: 0 auto 22px;
+            position: relative;
+        }
+
+        .closing-cta .cta-button {
+            position: relative;
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .closing-cta-note {
+            margin-top: 14px;
+            font-size: 12.5px;
             color: rgba(255,255,255,0.45);
-            margin-top: 4px;
             position: relative;
-        }
-
-        .highlight-dots {
-            display: flex;
-            gap: 6px;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .highlight-dots span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-
-        .highlight-dots span.active {
-            background: #4ade80;
-            box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
         }
 
         /* ── Scroll animations ── */
@@ -560,7 +654,7 @@
 
         /* ── Footer ── */
         .footer {
-            margin-top: 80px;
+            margin-top: 48px;
             padding-top: 28px;
             border-top: 1px solid var(--border);
             display: flex;
@@ -598,10 +692,22 @@
             .step-card--wide .step-icon { margin-bottom: 16px; }
             .topbar-nav { gap: 2px; }
             .topbar-nav a { font-size: 12px; padding: 5px 8px; }
-            .highlight-banner { flex-direction: column; align-items: flex-start; }
             .hero-stats { gap: 8px; }
             .stat-chip { font-size: 11px; padding: 6px 10px; }
             .section-title { font-size: 24px; }
+            .closing-cta { padding: 32px 22px; }
+            .closing-cta-title { font-size: 24px; }
+            .showcase-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+                padding: 16px 20px 24px;
+            }
+            .showcase-row--reverse .showcase-shot { order: 0; }
+            .showcase-shot { margin: 0 -20px 4px; }
+            .showcase-shot img { max-width: 420px; max-height: 460px; }
+            .showcase-caption { padding: 4px 4px 8px; max-width: none; }
+            .showcase-caption h3 { font-size: 24px; }
+            .showcase-caption p { font-size: 15px; }
         }
     </style>
 </head>
@@ -654,6 +760,47 @@
         </div>
     </section>
 
+    <!-- Product showcase -->
+    <section class="showcase">
+        <div class="section-header">
+            <div class="section-label">See it in action</div>
+            <div class="section-title">Every angle of every lead, in one tap</div>
+        </div>
+
+        <div class="showcase-row fade-up">
+            <div class="showcase-shot">
+                <img src="images/app-closure-score.jpg" alt="Lead Leap Closure Score of 95 broken down across Intent, Engagement, Urgency, and Budget Fit" loading="lazy">
+            </div>
+            <div class="showcase-caption">
+                <span class="showcase-caption-label">Closure score</span>
+                <h3>Who to call first, ranked</h3>
+                <p>A single score backed by Intent, Engagement, Urgency, and Budget Fit &mdash; so your Monday morning starts with the right lead.</p>
+            </div>
+        </div>
+
+        <div class="showcase-row showcase-row--reverse fade-up">
+            <div class="showcase-shot">
+                <img src="images/app-insights.jpg" alt="Lead Leap Insights screen with AI summary, warming-up sentiment trend, and key objections" loading="lazy">
+            </div>
+            <div class="showcase-caption">
+                <span class="showcase-caption-label">Insights</span>
+                <h3>The story behind the chat</h3>
+                <p>An AI summary, sentiment direction, and the buyer's open objections &mdash; surfaced from the conversation in one tap.</p>
+            </div>
+        </div>
+
+        <div class="showcase-row fade-up">
+            <div class="showcase-shot">
+                <img src="images/app-followups.jpg" alt="Lead Leap follow-ups screen showing a five-message sequence scheduled for a single buyer" loading="lazy">
+            </div>
+            <div class="showcase-caption">
+                <span class="showcase-caption-label">Follow-ups</span>
+                <h3>Every touch, already drafted</h3>
+                <p>AI-written messages and reminders sequenced across days, so you never lose a lead to silence between touches 2 and 6.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- How it works -->
     <div class="section-header" id="how-it-works">
         <div class="section-label">How it works</div>
@@ -692,30 +839,27 @@
         </div>
     </div>
 
-    <!-- Highlight banner -->
-    <div class="highlight-banner">
-        <div>
-            <div class="label">The continuous loop</div>
-            <div class="value">Paste &rarr; Profile &rarr; Follow Up &rarr; Repeat</div>
-            <div class="note">Every re-analysis sharpens your lead intelligence</div>
-        </div>
-        <div class="highlight-dots">
-            <span class="active"></span>
-            <span class="active"></span>
-            <span class="active"></span>
-            <span class="active"></span>
-            <span></span>
-        </div>
-    </div>
+    <!-- Closing CTA -->
+    <section class="closing-cta fade-up">
+        <div class="closing-cta-label">Stop losing leads you already have</div>
+        <div class="closing-cta-title">Your next deal is already <em>in your inbox</em>.</div>
+        <p>Lead Leap reads your WhatsApp threads, scores every lead, and tells you exactly who to follow up with today &mdash; before they go cold.</p>
+        <a class="cta-button" href="#" aria-label="Download Lead Leap on the App Store">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12.74 9.39c-.02-2.08 1.7-3.08 1.78-3.13-0.97-1.42-2.48-1.61-3.02-1.63-1.28-.13-2.51.76-3.16.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.83-3.44 2.1-1.48 2.56-.38 6.35 1.05 8.43.71 1.01 1.55 2.15 2.65 2.11 1.07-.04 1.47-.69 2.76-.69 1.28 0 1.65.69 2.76.67 1.14-.02 1.87-1.03 2.55-2.05.82-1.17 1.15-2.32 1.17-2.38-.03-.01-2.23-.86-2.35-3.47z" fill="currentColor"/>
+                <path d="M10.56 3.49c.57-.72.96-1.7.86-2.69-.83.04-1.85.57-2.45 1.27-.53.62-1 1.63-.88 2.59.93.07 1.89-.47 2.47-1.17z" fill="currentColor"/>
+            </svg>
+            Download on the App Store
+        </a>
+        <div class="closing-cta-note">5 free analyses &middot; no card required</div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
         <nav class="footer-right">
-            <a href="articles/">Articles</a>
             <a href="privacy-policy.html">Privacy Policy</a>
             <a href="terms-of-service.html">Terms of Service</a>
-            <a href="contact-us.html">Contact Us</a>
         </nav>
     </footer>
 

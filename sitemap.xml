@@ -12,6 +12,18 @@
         <lastmod>2026-06-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://credibilis-solutions.com/lead-leap/images/app-closure-score.jpg</image:loc>
+            <image:title>Lead Leap closure score with intent, engagement, urgency, and budget breakdown</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://credibilis-solutions.com/lead-leap/images/app-insights.jpg</image:loc>
+            <image:title>Lead Leap AI insights: summary, sentiment trend, and key objections</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://credibilis-solutions.com/lead-leap/images/app-followups.jpg</image:loc>
+            <image:title>Lead Leap AI-drafted follow-up sequence for a real estate buyer</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://credibilis-solutions.com/lead-leap/articles/</loc>
