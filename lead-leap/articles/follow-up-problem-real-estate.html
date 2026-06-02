@@ -182,6 +182,8 @@
 
         .topbar-nav {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
             gap: 6px;
         }
 
@@ -745,8 +747,9 @@
 
         /* ── Responsive ── */
         @media (max-width: 520px) {
-            .topbar-nav { gap: 2px; }
-            .topbar-nav a { font-size: 12px; padding: 5px 8px; }
+            .topbar { padding: 22px 0 22px; margin-bottom: 32px; gap: 12px; }
+            .topbar-nav { width: 100%; justify-content: flex-start; gap: 4px; }
+            .topbar-nav a { font-size: 12px; padding: 5px 9px; }
             .article-hero { margin: 0 -24px; }
             .article-hero img { height: 260px; }
             .article-header h1 { font-size: 30px; }

@@ -127,6 +127,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px 16px;
             padding: 28px 0 40px;
             border-bottom: 1px solid var(--border);
             margin-bottom: 48px;
@@ -167,6 +169,8 @@
 
         .topbar-nav {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
             gap: 6px;
         }
 
@@ -274,7 +278,8 @@
         .article-card-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
+            flex-wrap: wrap;
+            gap: 8px 12px;
             font-size: 12px;
             color: var(--ink-soft);
         }
@@ -375,12 +380,15 @@
         /* ── Responsive ── */
         @media (max-width: 520px) {
             .hero h1 { font-size: 32px; }
-            .topbar-nav { gap: 2px; }
-            .topbar-nav a { font-size: 12px; padding: 5px 8px; }
+            .topbar { padding: 22px 0 22px; margin-bottom: 32px; gap: 12px; }
+            .topbar-nav { width: 100%; justify-content: flex-start; gap: 4px; }
+            .topbar-nav a { font-size: 12px; padding: 5px 9px; }
             .article-card { grid-template-columns: 1fr; }
             .article-card-image { min-height: 180px; max-height: 200px; }
             .article-card-body { padding: 20px; }
             .article-card-title { font-size: 19px; }
+            .article-card-meta { font-size: 11px; }
+            .article-card-tag { font-size: 10px; padding: 3px 8px; }
         }
     </style>
 </head>
