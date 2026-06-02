@@ -3,20 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Leap — AI-Powered Lead Intelligence from Your Conversations</title>
-    <meta name="description" content="Turn WhatsApp conversations into actionable lead intelligence. Lead Leap uses AI to score leads, detect sentiment, surface objections, and draft follow-ups — so you close more deals.">
+    <title>Lead Leap — AI-Powered WhatsApp Lead Intelligence for Real Estate Agents</title>
+    <meta name="description" content="Turn WhatsApp conversations into actionable lead intelligence. Lead Leap uses AI to score leads, detect sentiment, surface objections, and draft follow-ups — so real estate agents close more deals.">
+    <meta name="keywords" content="lead intelligence, WhatsApp CRM, real estate AI, lead scoring, follow-up automation, sales conversation analysis">
+    <meta name="author" content="Credibilis Solutions LLC">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#1a56db">
     <link rel="canonical" href="https://credibilis-solutions.com/lead-leap/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Lead Leap — Turn Conversations into Closed Deals">
-    <meta property="og:description" content="AI-powered lead analysis and follow-up management for sales professionals. Paste a conversation, get instant insights.">
+    <meta property="og:title" content="Lead Leap — Turn WhatsApp Conversations into Closed Deals">
+    <meta property="og:description" content="AI-powered lead analysis and follow-up management for real estate agents. Paste a conversation, get instant insights.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://credibilis-solutions.com/lead-leap/">
+    <meta property="og:site_name" content="Lead Leap">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://credibilis-solutions.com/lead-leap/articles/images/follow-up-problem-hero.jpg">
+    <meta property="og:image:alt" content="Lead Leap — AI-powered lead intelligence for real estate agents">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lead Leap — Turn WhatsApp Conversations into Closed Deals">
+    <meta name="twitter:description" content="AI-powered lead analysis and follow-up management for real estate agents. Paste a conversation, get instant insights.">
+    <meta name="twitter:image" content="https://credibilis-solutions.com/lead-leap/articles/images/follow-up-problem-hero.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Credibilis Solutions LLC",
+        "url": "https://credibilis-solutions.com",
+        "logo": "https://credibilis-solutions.com/lead-leap/favicon.svg",
+        "email": "admin@credibilis.in"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Lead Leap",
+        "operatingSystem": "iOS",
+        "applicationCategory": "BusinessApplication",
+        "description": "AI-powered lead intelligence from WhatsApp conversations for real estate agents",
+        "url": "https://credibilis-solutions.com/lead-leap/",
+        "image": "https://credibilis-solutions.com/lead-leap/favicon.svg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Credibilis Solutions LLC"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Lead Leap",
+        "url": "https://credibilis-solutions.com/lead-leap/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Credibilis Solutions LLC"
+        }
+    }
+    </script>
     <style>
         /* ── Design tokens ── */
         :root {
@@ -38,7 +98,10 @@
 
         body {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--surface-2);
+            background:
+                radial-gradient(ellipse at 70% 0%, rgba(26,86,219,0.045) 0%, transparent 50%),
+                radial-gradient(ellipse at 0% 100%, rgba(99,102,241,0.03) 0%, transparent 50%),
+                var(--surface-2);
             color: var(--ink);
             -webkit-font-smoothing: antialiased;
             line-height: 1.7;
@@ -140,8 +203,8 @@
 
         /* ── Hero ── */
         .hero {
-            margin-bottom: 64px;
-            padding-bottom: 64px;
+            margin-bottom: 80px;
+            padding-bottom: 72px;
             border-bottom: 1px solid var(--border);
         }
 
@@ -182,10 +245,21 @@
 
         .hero h1 em {
             font-style: normal;
-            background: linear-gradient(135deg, var(--accent), #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--ink);
+            position: relative;
+            display: inline;
+        }
+
+        .hero h1 em::after {
+            content: '';
+            position: absolute;
+            left: -2px;
+            right: -2px;
+            bottom: 4px;
+            height: 35%;
+            background: var(--accent-light);
+            z-index: -1;
+            border-radius: 2px;
         }
 
         .hero p {
@@ -289,7 +363,7 @@
 
         /* ── Section headers ── */
         .section-header {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
         }
 
         .section-label {
@@ -312,9 +386,25 @@
         /* ── How it works grid ── */
         .steps-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 12px;
+        }
+
+        .step-card--wide {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .step-card--wide .step-icon {
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+
+        .step-card--wide .step-content {
+            flex: 1;
         }
 
         .step-card {
@@ -387,7 +477,7 @@
             background: linear-gradient(135deg, #0d1117, #1a2332);
             border-radius: 14px;
             padding: 32px;
-            margin-top: 12px;
+            margin-top: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -470,7 +560,7 @@
 
         /* ── Footer ── */
         .footer {
-            margin-top: 56px;
+            margin-top: 80px;
             padding-top: 28px;
             border-top: 1px solid var(--border);
             display: flex;
@@ -504,6 +594,8 @@
         @media (max-width: 520px) {
             .hero h1 { font-size: 36px; }
             .steps-grid { grid-template-columns: 1fr; }
+            .step-card--wide { flex-direction: column; align-items: flex-start; }
+            .step-card--wide .step-icon { margin-bottom: 16px; }
             .topbar-nav { gap: 2px; }
             .topbar-nav a { font-size: 12px; padding: 5px 8px; }
             .highlight-banner { flex-direction: column; align-items: flex-start; }
@@ -533,9 +625,9 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-eyebrow">AI-Powered Lead Intelligence</div>
-        <h1>Turn conversations<br>into <em>closed deals</em></h1>
-        <p>Paste a WhatsApp chat, get instant lead scoring, sentiment analysis, objection mapping, and AI-drafted follow-ups — everything you need to close faster.</p>
+        <div class="hero-eyebrow">For agents who are done losing warm leads</div>
+        <h1>Your leads are talking.<br>Are you <em>listening</em>?</h1>
+        <p>44% of agents give up after one follow-up. 80% of deals need five or more. Lead Leap reads your WhatsApp conversations and tells you exactly who to follow up with, when, and what to say.</p>
         <div class="hero-actions">
             <a class="cta-button" href="#" aria-label="Download Lead Leap on the App Store">
                 <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -549,15 +641,15 @@
         <div class="hero-stats">
             <div class="stat-chip">
                 <div class="stat-icon blue"><i data-lucide="target"></i></div>
-                Closure scoring
+                78% choose the first responder
             </div>
             <div class="stat-chip">
                 <div class="stat-icon green"><i data-lucide="activity"></i></div>
-                Sentiment tracking
+                80% of deals need 5+ touches
             </div>
             <div class="stat-chip">
                 <div class="stat-icon amber"><i data-lucide="sparkles"></i></div>
-                AI follow-ups
+                21× faster reply = 21× more closes
             </div>
         </div>
     </section>
@@ -569,11 +661,13 @@
     </div>
 
     <div class="steps-grid">
-        <div class="step-card fade-up">
+        <div class="step-card step-card--wide fade-up">
             <div class="step-icon paste"><i data-lucide="clipboard-paste"></i></div>
             <div class="step-num">01</div>
-            <div class="step-title">Paste</div>
-            <div class="step-desc">Copy a WhatsApp conversation or import directly from Telegram, iMessage, or Safari using the share extension.</div>
+            <div class="step-content">
+                <div class="step-title">Paste</div>
+                <div class="step-desc">Copy a WhatsApp conversation or import directly from Telegram, iMessage, or Safari using the share extension.</div>
+            </div>
         </div>
 
         <div class="step-card fade-up">
