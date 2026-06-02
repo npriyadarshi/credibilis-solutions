@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 WhatsApp Signals That Tell You a Buyer Is About to Ghost You — Lead Leap</title>
+    <meta name="description" content="Behavioral research shows specific message patterns appear 5–7 days before a buyer disappears. Here are 7 signals to watch for and what to do when you spot them.">
+    <link rel="canonical" href="https://credibilis-solutions.com/lead-leap/articles/whatsapp-signals-buyer-ghosting.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="7 WhatsApp Signals That Tell You a Buyer Is About to Ghost You">
+    <meta property="og:description" content="Most agents find out a lead went cold weeks after it happened. Here are 7 behavioral patterns that predict ghosting 5–7 days out.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://credibilis-solutions.com/lead-leap/articles/whatsapp-signals-buyer-ghosting.html">
+    <meta property="og:image" content="https://credibilis-solutions.com/lead-leap/articles/images/whatsapp-signals-hero.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
+    <style>
+        /* ── Design tokens ── */
+        :root {
+            --ink:        #0d1117;
+            --ink-mid:    #3d4a5c;
+            --ink-soft:   #6b7a91;
+            --ink-ghost:  #a8b4c4;
+            --surface:    #ffffff;
+            --surface-2:  #f5f7fa;
+            --surface-3:  #eef1f6;
+            --accent:     #1a56db;
+            --accent-light: #e8effc;
+            --border:     #dde3ed;
+            --border-2:   #c8d0de;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--surface-2);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+        }
+
+        /* ── Reading progress bar ── */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1a56db, #6366f1, #a855f7);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
+
+        /* ── Accent stripe ── */
+        body::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, #1a56db, #6366f1, #a855f7);
+        }
+
+        /* ── Page container ── */
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+        }
+
+        /* ── Topbar ── */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-mark span {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .topbar-nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        .topbar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            color: var(--ink);
+            background: var(--surface-3);
+        }
+
+        .topbar-nav a.active {
+            background: var(--ink);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(13,17,23,0.12);
+        }
+
+        /* ── Hero image ── */
+        .article-hero {
+            margin: 0 -24px;
+            position: relative;
+            overflow: hidden;
+            max-height: 420px;
+        }
+
+        .article-hero img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .article-hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(13,17,23,0.85) 0%, rgba(13,17,23,0.4) 50%, transparent 100%);
+        }
+
+        /* ── Article header ── */
+        .article-header {
+            padding: 40px 0 0;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .article-meta-text {
+            font-size: 13px;
+            color: var(--ink-soft);
+        }
+
+        .article-meta-divider {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--ink-ghost);
+        }
+
+        .article-header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.18;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+            color: var(--ink);
+        }
+
+        .article-subtitle {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--ink-soft);
+            margin-bottom: 8px;
+        }
+
+        .article-tldr {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px;
+            margin: 24px 0 0;
+            font-size: 14px;
+            color: var(--ink-mid);
+            line-height: 1.7;
+        }
+
+        .article-tldr strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── Article content ── */
+        .article-content {
+            padding-top: 36px;
+        }
+
+        .article-content p {
+            font-size: 16px;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .article-content h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: var(--ink);
+            margin-top: 44px;
+            margin-bottom: 18px;
+            line-height: 1.25;
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        /* ── Stat callout ── */
+        .stat-callout {
+            background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 28px 30px;
+            margin: 32px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .stat-callout-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            flex-shrink: 0;
+        }
+
+        .stat-callout-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* ── Signal cards ── */
+        .signals-section {
+            margin-top: 8px;
+        }
+
+        .signal-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 26px 28px;
+            margin-bottom: 18px;
+            position: relative;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .signal-card:hover {
+            border-color: var(--border-2);
+            box-shadow: 0 4px 20px rgba(13,17,23,0.04);
+        }
+
+        .signal-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .signal-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px;
+            font-weight: 400;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .signal-number.sn-1 { background: linear-gradient(135deg, #1a56db, #3b82f6); }
+        .signal-number.sn-2 { background: linear-gradient(135deg, #6366f1, #818cf8); }
+        .signal-number.sn-3 { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+        .signal-number.sn-4 { background: linear-gradient(135deg, #a855f7, #c084fc); }
+        .signal-number.sn-5 { background: linear-gradient(135deg, #d946ef, #e879f9); }
+        .signal-number.sn-6 { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .signal-number.sn-7 { background: linear-gradient(135deg, #f43f5e, #fb7185); }
+
+        .signal-card-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.35;
+            padding-top: 6px;
+        }
+
+        .signal-card-body {
+            font-size: 15px;
+            color: var(--ink-mid);
+            line-height: 1.75;
+            padding-left: 52px;
+        }
+
+        /* ── Action section ── */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .action-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 20px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .action-card:hover {
+            border-color: var(--border-2);
+            box-shadow: 0 4px 16px rgba(13,17,23,0.04);
+        }
+
+        .action-card-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .action-card-icon.aci-1 { background: linear-gradient(135deg, #1a56db, #3b82f6); }
+        .action-card-icon.aci-2 { background: linear-gradient(135deg, #059669, #34d399); }
+        .action-card-icon.aci-3 { background: linear-gradient(135deg, #d97706, #fbbf24); }
+        .action-card-icon.aci-4 { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+
+        .action-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .action-card p {
+            font-size: 13.5px;
+            color: var(--ink-mid);
+            line-height: 1.65;
+            margin-bottom: 0;
+        }
+
+        /* ── Closing paragraph ── */
+        .article-closing {
+            font-size: 16px;
+            color: var(--ink);
+            font-weight: 500;
+            line-height: 1.75;
+            margin-top: 12px;
+            margin-bottom: 0;
+        }
+
+        /* ── CTA banner ── */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 36px 34px;
+            margin-top: 44px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-banner p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-banner em {
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+        }
+
+        .cta-banner-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--ink);
+            padding: 13px 26px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+            position: relative;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── Sources ── */
+        .sources-section {
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        .sources-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sources-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sources-list li {
+            font-size: 13px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .sources-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--ink-ghost);
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+            margin: 28px 0 0;
+            transition: color 0.15s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ── Divider ── */
+        .article-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 36px 0;
+        }
+
+        /* ── Fade-up animation ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Staggered signal cards ── */
+        .signal-card.fade-up:nth-child(1) { transition-delay: 0s; }
+        .signal-card.fade-up:nth-child(2) { transition-delay: 0.06s; }
+        .signal-card.fade-up:nth-child(3) { transition-delay: 0.12s; }
+        .signal-card.fade-up:nth-child(4) { transition-delay: 0.18s; }
+        .signal-card.fade-up:nth-child(5) { transition-delay: 0.24s; }
+        .signal-card.fade-up:nth-child(6) { transition-delay: 0.30s; }
+        .signal-card.fade-up:nth-child(7) { transition-delay: 0.36s; }
+
+        /* ── Staggered action cards ── */
+        .action-card.fade-up:nth-child(1) { transition-delay: 0s; }
+        .action-card.fade-up:nth-child(2) { transition-delay: 0.07s; }
+        .action-card.fade-up:nth-child(3) { transition-delay: 0.14s; }
+        .action-card.fade-up:nth-child(4) { transition-delay: 0.21s; }
+
+        /* ── Footer ── */
+        .footer {
+            margin-top: 56px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-left {
+            font-size: 13px;
+            color: var(--ink-ghost);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-right a {
+            font-size: 13px;
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-2);
+            transition: color 0.15s;
+        }
+
+        .footer-right a:hover { color: var(--ink); }
+
+        /* ── Responsive ── */
+        @media (max-width: 520px) {
+            .topbar-nav { gap: 2px; }
+            .topbar-nav a { font-size: 12px; padding: 5px 8px; }
+            .article-hero { margin: 0 -24px; }
+            .article-hero img { height: 260px; }
+            .article-header h1 { font-size: 30px; }
+            .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 24px; }
+            .stat-callout-number { font-size: 38px; }
+            .signal-card { padding: 20px; }
+            .signal-card-body { padding-left: 0; margin-top: 8px; }
+            .action-grid { grid-template-columns: 1fr; }
+            .cta-banner { padding: 28px 22px; }
+            .cta-banner-title { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="page">
+
+    <!-- Top bar -->
+    <header class="topbar">
+        <a class="brand" href="../index.html">
+            <div class="brand-mark"><span>LL</span></div>
+            <div class="brand-name">Lead Leap</div>
+        </a>
+        <nav class="topbar-nav">
+            <a href="../index.html">Home</a>
+            <a href="./" class="active">Articles</a>
+            <a href="../privacy-policy.html">Privacy</a>
+            <a href="../terms-of-service.html">Terms</a>
+            <a href="../contact-us.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero image -->
+    <div class="article-hero">
+        <img src="images/whatsapp-signals-hero.jpg" alt="Phone showing a WhatsApp conversation with fading engagement signals">
+        <div class="article-hero-overlay"></div>
+    </div>
+
+    <!-- Back link -->
+    <a class="back-link" href="./">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        All articles
+    </a>
+
+    <!-- Article header -->
+    <div class="article-header fade-up">
+        <div class="article-meta">
+            <span class="article-tag"><i data-lucide="message-circle" style="width:12px;height:12px"></i> Lead Intelligence</span>
+            <span class="article-meta-text">4-min read</span>
+            <span class="article-meta-divider"></span>
+            <span class="article-meta-text">June 2, 2026</span>
+            <span class="article-meta-divider"></span>
+            <span class="article-meta-text">For real estate agents managing leads on WhatsApp</span>
+        </div>
+        <h1>7 WhatsApp Signals That Tell You a Buyer Is About to Ghost You</h1>
+        <div class="article-tldr">
+            <strong>TL;DR:</strong> Most agents find out a lead went cold weeks after it happened. Behavioral research shows there are specific message patterns that show up 5 to 7 days before a buyer disappears. Here are 7 of them, what causes them, and what to do when you spot them.
+        </div>
+    </div>
+
+    <!-- Article body -->
+    <article class="article-content">
+
+        <!-- Opening stats -->
+        <div class="fade-up">
+            <div class="stat-callout">
+                <div class="stat-callout-number">79%</div>
+                <div class="stat-callout-text">of real estate leads never convert to a sale. And the average agent takes over 15 hours to respond to a new inquiry. Those two numbers are connected — but not in the way you'd think.</div>
+            </div>
+        </div>
+
+        <div class="fade-up">
+            <p>The problem isn't just slow responses. It's that agents can't tell the difference between a busy buyer and one who's already mentally checked out. By the time the silence becomes obvious, the deal was dead a week ago.</p>
+        </div>
+
+        <h2 class="fade-up">The real cost of reading it wrong</h2>
+
+        <div class="fade-up">
+            <div class="stat-callout">
+                <div class="stat-callout-number">44%</div>
+                <div class="stat-callout-text">of agents give up after a single follow-up. Meanwhile, <strong style="color:white">80% of sales</strong> require five or more contacts before closing. That's a massive gap between what agents do and what actually works.</div>
+            </div>
+        </div>
+
+        <div class="fade-up">
+            <p>But "just follow up more" isn't the answer either. Blindly chasing a lead who's decided to go with another agent wastes hours you could spend on buyers who are still engaged. The trick isn't more follow-ups. It's knowing <em>which</em> leads need them.</p>
+        </div>
+
+        <h2 class="fade-up">Why you keep missing the signals</h2>
+
+        <div class="fade-up">
+            <p>Most agents read their WhatsApp conversations the same way they read any text thread. Casually. They notice when someone stops replying entirely, but they miss the gradual shift that happens days before.</p>
+
+            <p>Researchers at PNAS found that response speed in digital conversations works as an "honest signal" of social connection. When someone replies fast and consistently, that rhythm reflects genuine interest. When that rhythm starts to break, it's not random. It's an early indicator that their attention has moved somewhere else.</p>
+
+            <p>The key word is <em>change</em>. A buyer who always takes 4 hours to reply isn't a problem. A buyer who used to reply in 20 minutes and now takes 4 hours? That's a signal.</p>
+        </div>
+
+        <hr class="article-divider fade-up">
+
+        <h2 class="fade-up">7 patterns that predict ghosting (5 to 7 days out)</h2>
+
+        <div class="fade-up">
+            <p>These come from behavioral psychology research on digital communication. No single pattern means much on its own. But when you see three or more showing up together, pay attention.</p>
+        </div>
+
+        <!-- 7 signal cards -->
+        <div class="signals-section">
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-1">1</div>
+                    <div class="signal-card-title">Response times are drifting.</div>
+                </div>
+                <div class="signal-card-body">Not slow replies. <em>Slower-than-their-normal</em> replies. If your buyer used to respond within an hour and now it's taking a full day, something changed. Track the baseline, not the absolute number.</div>
+            </div>
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-2">2</div>
+                    <div class="signal-card-title">Messages are getting shorter.</div>
+                </div>
+                <div class="signal-card-body">They used to send you full sentences. Questions. Details about what they're looking for. Now it's "ok" and "sounds good." Researchers call this a departure from reciprocal communication norms. In plain terms: they're putting in less effort because they care less.</div>
+            </div>
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-3">3</div>
+                    <div class="signal-card-title">You're always texting first.</div>
+                </div>
+                <div class="signal-card-body">Scroll through the last two weeks of your conversation. If every exchange starts with you, that's a pattern. Initiation frequency is one of the strongest indicators of interest in digital communication research.</div>
+            </div>
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-4">4</div>
+                    <div class="signal-card-title">They stopped asking questions.</div>
+                </div>
+                <div class="signal-card-body">A buyer who's engaged asks things. "What's the HOA fee?" "Can we see it Saturday?" "Is the seller flexible?" When the questions dry up, curiosity has dried up too.</div>
+            </div>
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-5">5</div>
+                    <div class="signal-card-title">Responses have become generic.</div>
+                </div>
+                <div class="signal-card-body">"That's great." "Nice." "Cool." Communication researchers call these "empty echo signals" — replies that technically respond but require almost no thought. They're the texting equivalent of nodding while looking at your phone.</div>
+            </div>
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-6">6</div>
+                    <div class="signal-card-title">Emojis and warmth disappeared.</div>
+                </div>
+                <div class="signal-card-body">This one sounds small, but a 2019 PLOS ONE study found that emoji use functions as an "affective signal" — it communicates warmth and engagement. A buyer who used to send thumbs up and smiley faces and now sends flat text is pulling back emotionally.</div>
+            </div>
+
+            <div class="signal-card fade-up">
+                <div class="signal-card-header">
+                    <div class="signal-number sn-7">7</div>
+                    <div class="signal-card-title">No more future talk.</div>
+                </div>
+                <div class="signal-card-body">"We should check out that neighborhood this weekend" turns into "yeah, maybe." When a buyer stops using future-oriented language, they're no longer picturing themselves in the deal.</div>
+            </div>
+
+        </div>
+
+        <hr class="article-divider fade-up">
+
+        <h2 class="fade-up">What to do when you spot the pattern</h2>
+
+        <div class="fade-up">
+            <p>Don't panic and don't send five messages in a row. Here's what works:</p>
+        </div>
+
+        <!-- Action cards -->
+        <div class="action-grid">
+            <div class="action-card fade-up">
+                <div class="action-card-icon aci-1">
+                    <i data-lucide="scan-search" style="width:18px;height:18px"></i>
+                </div>
+                <h3>Confirm it's a pattern, not a bad week.</h3>
+                <p>Everyone gets busy. Look for three or more of these signals showing up together over several days. One short reply on a Monday morning means nothing.</p>
+            </div>
+            <div class="action-card fade-up">
+                <div class="action-card-icon aci-2">
+                    <i data-lucide="phone" style="width:18px;height:18px"></i>
+                </div>
+                <h3>Change the channel.</h3>
+                <p>If WhatsApp is going cold, try a quick phone call or voice note. Sometimes a different format breaks through in a way another text can't.</p>
+            </div>
+            <div class="action-card fade-up">
+                <div class="action-card-icon aci-3">
+                    <i data-lucide="message-square-text" style="width:18px;height:18px"></i>
+                </div>
+                <h3>Ask a direct question.</h3>
+                <p>Not "just checking in." Try something specific: "I found a listing at $340K in Riverside with the layout you described. Worth a look, or has your search changed direction?"</p>
+            </div>
+            <div class="action-card fade-up">
+                <div class="action-card-icon aci-4">
+                    <i data-lucide="bar-chart-3" style="width:18px;height:18px"></i>
+                </div>
+                <h3>Track it over time.</h3>
+                <p>Scoring leads manually works for five buyers. Not for twenty. If you're managing a full pipeline, tools like Lead Leap can track sentiment shifts and flag cooling leads automatically.</p>
+            </div>
+        </div>
+
+        <p class="article-closing fade-up">The agents who close at 3x the industry average aren't working harder. They're reading the conversation better. And now you know what to look for.</p>
+
+    </article>
+
+    <!-- CTA banner -->
+    <div class="cta-banner fade-up">
+        <div class="cta-banner-title">Stop guessing. Start scoring.</div>
+        <p>Lead Leap analyzes your WhatsApp conversations and scores each lead on intent, engagement, urgency, and sentiment. 5 free analyses, no card required.</p>
+        <a class="cta-button" href="#" aria-label="Download Lead Leap on the App Store">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12.74 9.39c-.02-2.08 1.7-3.08 1.78-3.13-0.97-1.42-2.48-1.61-3.02-1.63-1.28-.13-2.51.76-3.16.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.83-3.44 2.1-1.48 2.56-.38 6.35 1.05 8.43.71 1.01 1.55 2.15 2.65 2.11 1.07-.04 1.47-.69 2.76-.69 1.28 0 1.65.69 2.76.67 1.14-.02 1.87-1.03 2.55-2.05.82-1.17 1.15-2.32 1.17-2.38-.03-.01-2.23-.86-2.35-3.47z" fill="currentColor"/>
+                <path d="M10.56 3.49c.57-.72.96-1.7.86-2.69-.83.04-1.85.57-2.45 1.27-.53.62-1 1.63-.88 2.59.93.07 1.89-.47 2.47-1.17z" fill="currentColor"/>
+            </svg>
+            Download on the App Store
+        </a>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources-section fade-up">
+        <div class="sources-title">Sources</div>
+        <ul class="sources-list">
+            <li>NAR 2025 Home Buyers and Sellers Generational Trends Report</li>
+            <li>Real Trends/InsideSales.com Lead Response Study, 2025</li>
+            <li>Inman Real Estate Technology Survey, 2025</li>
+            <li>PNAS 2022: Response times as honest signals of social connection</li>
+            <li>PLOS ONE 2019: Emoji as affective signals in digital communication</li>
+            <li>Computers in Human Behavior 2017: Partner similarity in texting</li>
+            <li>REsimpli 2024 Lead Generation Statistics</li>
+            <li>National Sales Executive Association / Inman 2025</li>
+            <li>MosaicChats 2025: Signs of declining interest in text conversations</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
+        <nav class="footer-right">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-of-service.html">Terms of Service</a>
+            <a href="../contact-us.html">Contact Us</a>
+        </nav>
+    </footer>
+
+</div>
+
+<script>
+    // Reading progress bar
+    var progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    });
+
+    // Scroll-triggered fade-in
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+        observer.observe(el);
+    });
+
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles — Lead Leap by Credibilis Solutions</title>
+    <meta name="description" content="Insights, strategies, and behavioral science for real estate agents who close deals through messaging. Curated articles from the Lead Leap team.">
+    <link rel="canonical" href="https://credibilis-solutions.com/lead-leap/articles/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
+    <style>
+        /* ── Design tokens ── */
+        :root {
+            --ink:        #0d1117;
+            --ink-mid:    #3d4a5c;
+            --ink-soft:   #6b7a91;
+            --ink-ghost:  #a8b4c4;
+            --surface:    #ffffff;
+            --surface-2:  #f5f7fa;
+            --surface-3:  #eef1f6;
+            --accent:     #1a56db;
+            --accent-light: #e8effc;
+            --border:     #dde3ed;
+            --border-2:   #c8d0de;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--surface-2);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+        }
+
+        /* ── Accent stripe ── */
+        body::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, #1a56db, #6366f1, #a855f7);
+        }
+
+        /* ── Page container ── */
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+        }
+
+        /* ── Topbar ── */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-mark span {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .topbar-nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        .topbar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            color: var(--ink);
+            background: var(--surface-3);
+        }
+
+        .topbar-nav a.active {
+            background: var(--ink);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(13,17,23,0.12);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            padding: 40px 0 48px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--ink-mid);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── Articles grid ── */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+            margin-top: 8px;
+        }
+
+        .article-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--ink);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(13,17,23,0.08);
+            border-color: var(--border-2);
+        }
+
+        .article-card-image {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            object-fit: cover;
+        }
+
+        .article-card-body {
+            padding: 28px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .article-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--ink-soft);
+        }
+
+        .article-card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .article-card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+
+        .article-card-excerpt {
+            font-size: 14px;
+            color: var(--ink-mid);
+            line-height: 1.65;
+        }
+
+        .article-card-cta {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .article-card-cta span {
+            transition: transform 0.15s;
+        }
+
+        .article-card:hover .article-card-cta span {
+            transform: translateX(3px);
+        }
+
+        /* ── Fade-up animation ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up:nth-child(2) { transition-delay: 0.08s; }
+        .fade-up:nth-child(3) { transition-delay: 0.16s; }
+
+        /* ── Footer ── */
+        .footer {
+            margin-top: 56px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-left {
+            font-size: 13px;
+            color: var(--ink-ghost);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-right a {
+            font-size: 13px;
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-2);
+            transition: color 0.15s;
+        }
+
+        .footer-right a:hover { color: var(--ink); }
+
+        /* ── Responsive ── */
+        @media (max-width: 520px) {
+            .hero h1 { font-size: 32px; }
+            .topbar-nav { gap: 2px; }
+            .topbar-nav a { font-size: 12px; padding: 5px 8px; }
+            .article-card { grid-template-columns: 1fr; }
+            .article-card-image { min-height: 180px; max-height: 200px; }
+            .article-card-body { padding: 20px; }
+            .article-card-title { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Top bar -->
+    <header class="topbar">
+        <a class="brand" href="../index.html">
+            <div class="brand-mark"><span>LL</span></div>
+            <div class="brand-name">Lead Leap</div>
+        </a>
+        <nav class="topbar-nav">
+            <a href="../index.html">Home</a>
+            <a href="./" class="active">Articles</a>
+            <a href="../privacy-policy.html">Privacy</a>
+            <a href="../terms-of-service.html">Terms</a>
+            <a href="../contact-us.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-eyebrow">Curated Insights</div>
+        <h1>Articles</h1>
+        <p>Behavioral science, sales psychology, and practical strategies for real estate professionals who close deals through conversations.</p>
+    </div>
+
+    <!-- Articles list -->
+    <div class="articles-grid">
+
+        <a class="article-card fade-up" href="follow-up-problem-real-estate.html">
+            <img class="article-card-image" src="images/follow-up-problem-hero.jpg" alt="Real estate agent looking at phone with unanswered lead messages">
+            <div class="article-card-body">
+                <div class="article-card-meta">
+                    <span class="article-card-tag">Follow-Up Strategy</span>
+                    <span>10-min read</span>
+                    <span>June 5, 2026</span>
+                </div>
+                <h2 class="article-card-title">The Follow-Up Problem Nobody in Real Estate Wants to Talk About</h2>
+                <p class="article-card-excerpt">The average real estate agent takes over 15 hours to respond to a new lead. 44% quit after one follow-up. Yet 80% of deals need five or more touches. Here's what the data says.</p>
+                <div class="article-card-cta">Read article <span>&rarr;</span></div>
+            </div>
+        </a>
+
+        <a class="article-card fade-up" href="whatsapp-signals-buyer-ghosting.html">
+            <img class="article-card-image" src="images/whatsapp-signals-hero.jpg" alt="Phone showing WhatsApp conversation with fading messages">
+            <div class="article-card-body">
+                <div class="article-card-meta">
+                    <span class="article-card-tag">Lead Intelligence</span>
+                    <span>4-min read</span>
+                    <span>June 2, 2026</span>
+                </div>
+                <h2 class="article-card-title">7 WhatsApp Signals That Tell You a Buyer Is About to Ghost You</h2>
+                <p class="article-card-excerpt">Most agents find out a lead went cold weeks after it happened. Behavioral research shows there are specific message patterns that show up 5–7 days before a buyer disappears.</p>
+                <div class="article-card-cta">Read article <span>&rarr;</span></div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">&copy; 2026 Credibilis Solutions LLC. All rights reserved.</div>
+        <nav class="footer-right">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-of-service.html">Terms of Service</a>
+            <a href="../contact-us.html">Contact Us</a>
+        </nav>
+    </footer>
+
+</div>
+
+<script>
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+        observer.observe(el);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
+</body>
+</html>
